@@ -1,0 +1,124 @@
+[
+  {
+    "name": "claims_search_basic",
+    "query": "search claims for blockchain and authentication",
+    "expected_module": "patentsview_search.search_claims",
+    "expected_args": {
+      "keyword": "blockchain",
+      "keyword2": "authentication"
+    }
+  },
+  {
+    "name": "claims_search_fulltext",
+    "query": "find US patents granted after 2020 with claims mentioning machine learning and natural language",
+    "expected_module": "publications_search.search_claims_fulltext",
+    "expected_args": {
+      "keyword": "machine learning",
+      "keyword2": "natural language",
+      "country_code": "US",
+      "grant_after": 20200101
+    }
+  },
+  {
+    "name": "assignee_search_us",
+    "query": "find patents assigned to Atari",
+    "expected_module": "patentsview_search.search_by_assignee",
+    "expected_args": {
+      "assignee_name": "Atari"
+    }
+  },
+  {
+    "name": "assignee_search_international",
+    "query": "find Samsung's European patents",
+    "expected_module": "publications_search.search_by_assignee",
+    "expected_args": {
+      "assignee_name": "Samsung",
+      "country_code": "EP"
+    }
+  },
+  {
+    "name": "international_search",
+    "query": "search Japanese patents about wireless charging",
+    "expected_module": "publications_search.search_international",
+    "expected_args": {
+      "country_code": "JP",
+      "keyword": "wireless charging"
+    }
+  },
+  {
+    "name": "similar_patents",
+    "query": "find patents similar to US-10000000-B2",
+    "expected_module": "research_search.find_similar_patents",
+    "expected_args": {
+      "publication_number": "US-10000000-B2"
+    }
+  },
+  {
+    "name": "top_assignees",
+    "query": "who are the top assignees in CPC G06N?",
+    "expected_module": "publications_search.count_by_assignee_cpc",
+    "expected_args": {
+      "cpc_prefix": "G06N"
+    }
+  },
+  {
+    "name": "filing_trends",
+    "query": "show filing trends for AI patents in CPC G06N",
+    "expected_module": "publications_search.filing_trends",
+    "expected_args": {
+      "cpc_prefix": "G06N"
+    }
+  },
+  {
+    "name": "description_search",
+    "query": "search patent descriptions for quantum computing",
+    "expected_module": "publications_search.search_description",
+    "expected_args": {
+      "keyword": "quantum computing"
+    }
+  },
+  {
+    "name": "inventor_search",
+    "query": "find patents by inventor Smith",
+    "expected_module": "patentsview_search.search_by_inventor",
+    "expected_args": {
+      "last_name": "Smith"
+    }
+  },
+  {
+    "name": "cpc_search",
+    "query": "search patents in CPC class H04L",
+    "expected_module": "patentsview_search.search_by_cpc",
+    "expected_args": {
+      "cpc_code": "H04L"
+    }
+  },
+  {
+    "name": "keyword_search",
+    "query": "search Google Patents for autonomous vehicle navigation",
+    "expected_module": "publications_search.search_by_keyword",
+    "expected_args": {
+      "keyword": "autonomous vehicle"
+    }
+  },
+  {
+    "name": "cost_rejection",
+    "query": "SELECT * FROM patents.publications",
+    "expected_behavior": "rejected_by_validation",
+    "expected_error": "SELECT * is not allowed"
+  },
+  {
+    "name": "ptab_search",
+    "query": "search BigQuery for PTAB challenges against patent 10000000",
+    "expected_module": "prosecution_search.search_ptab",
+    "expected_args": {
+      "patent_number": "10000000"
+    }
+  },
+  {
+    "name": "should_not_trigger",
+    "query": "what is the status of application 16/123,456?",
+    "expected_behavior": "should_trigger_uspto_skill_instead",
+    "notes": "Prosecution status queries should go to the USPTO skill"
+  }
+]
