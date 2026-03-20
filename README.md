@@ -4,7 +4,7 @@ A Claude Code skill for searching Google Patents using plain English. Ask questi
 
 ## What This Skill Does
 
-This skill lets you search patent data using natural language. You ask questions in plain English, and the skill translates them into optimized BigQuery queries, runs them, and presents the results. It complements the existing **USPTO Patent Search** skill by adding capabilities that REST APIs can't provide:
+This skill lets you search patent data using natural language. You ask questions in plain English, and the skill translates them into optimized BigQuery queries, runs them, and presents the results. It complements the existing **[USPTO Patent Search](https://github.com/LeonardHope/USPTO-MyODP-and-PatentsView-Natural-Language-API-Search)** skill by adding capabilities that REST APIs can't provide:
 
 - **Full-text claims search** — "find patents with claims mentioning blockchain and authentication"
 - **Description/specification search** — "search descriptions for quantum error correction"
