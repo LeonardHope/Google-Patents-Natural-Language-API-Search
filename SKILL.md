@@ -46,10 +46,11 @@ You have 5 search modules, each targeting different BigQuery tables:
 
 ## Setup
 
-Before running any queries, verify the user has BigQuery access configured:
+Before running any queries, verify the user has BigQuery access configured.
+
+Run `get_started.py` from the skill's root directory (the directory containing this SKILL.md file):
 
 ```bash
-cd ~/Library/CloudStorage/GoogleDrive-leonard@hopeiplaw.com/My Drive/Firm Stuff/AI Stuff/Google Patents
 python3 get_started.py
 ```
 
@@ -124,19 +125,20 @@ are **frozen at February 2017** and will not reflect any transfers after that da
 
 ### Step 3: Run the Query
 
-All scripts are in `~/Library/CloudStorage/GoogleDrive-leonard@hopeiplaw.com/My Drive/Firm Stuff/AI Stuff/Google Patents/scripts/`. Import and call:
+All scripts are in the `scripts/` subdirectory relative to the skill root (the directory containing this SKILL.md file). Import and call:
 
 ```python
 import sys, os
-scripts_dir = os.path.expanduser("~/Library/CloudStorage/GoogleDrive-leonard@hopeiplaw.com/My Drive/Firm Stuff/AI Stuff/Google Patents/scripts")
+# Use the directory containing SKILL.md as the base
+scripts_dir = os.path.join(os.path.dirname(os.path.abspath("SKILL.md")), "scripts")
 sys.path.insert(0, scripts_dir)
 from patentsview_search import search_claims
 results = search_claims("blockchain", keyword2="authentication")
 ```
 
-Or run via CLI:
+Or run via CLI from the scripts directory:
 ```bash
-cd ~/Library/CloudStorage/GoogleDrive-leonard@hopeiplaw.com/My\ Drive/Firm\ Stuff/AI\ Stuff/Google\ Patents/scripts
+cd scripts/
 python3 patentsview_search.py claims blockchain --keyword2 authentication
 ```
 

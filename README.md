@@ -49,7 +49,7 @@ This skill queries Google's BigQuery public patent datasets, which are **periodi
 
 | Dataset | BigQuery Freshness | Google Patents Web |
 |---|---|---|
-| Patent publications (titles, abstracts, claims) | Updated regularly (currently through Oct 2025) | Live |
+| Patent publications (titles, abstracts, claims) | Updated periodically (check [Google's dataset page](https://console.cloud.google.com/bigquery?p=patents-public-data) for latest) | Live |
 | Assignee names | Reflects original filing only — does **not** include subsequent assignments | Incorporates assignment records, shows current owner |
 | USPTO assignment records | **Frozen at Feb 2017** — severely outdated | Live |
 | PatentsView tables | Updated periodically (~quarterly) | N/A |
@@ -73,14 +73,13 @@ cd Google-Patents-Natural-Language-API-Search
 
 ### Step 2: Install the Claude Code skill
 
-Copy or symlink the `SKILL.md` file into your Claude Code skills directory:
+Symlink the entire repo into your Claude Code skills directory so all paths resolve automatically:
 
 ```bash
-mkdir -p ~/.claude/skills/google-patent-search
-cp SKILL.md ~/.claude/skills/google-patent-search/SKILL.md
+ln -s "$(pwd)" ~/.claude/skills/google-patent-search
 ```
 
-Then edit `~/.claude/skills/google-patent-search/SKILL.md` and update the script paths to point to wherever you cloned the repo. Search for the path string and replace it with your local clone path.
+This creates a symlink so Claude Code can find both the SKILL.md and the scripts directory. If you move the repo later, just re-run this command from the new location.
 
 ### Step 3: Set up Google Cloud / BigQuery
 
