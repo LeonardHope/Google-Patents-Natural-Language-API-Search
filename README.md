@@ -1,6 +1,6 @@
 # Google Patent Search
 
-A Claude Code skill for searching Google Patents using plain English. Ask questions in natural language and get results from 166M+ patent publications across 17+ countries — powered by BigQuery under the hood.
+A Claude skill for searching Google Patents using plain English. Ask questions in natural language and get results from 166M+ patent publications across 17+ countries — powered by BigQuery under the hood.
 
 ## What This Skill Does
 
